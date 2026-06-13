@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { pricingCardVariants } from '@/lib/utils/animation';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
+import { customEase } from '@/lib/utils/animation';
 
 interface PricingCardProps {
   title: string;
@@ -12,6 +13,20 @@ interface PricingCardProps {
   ctaText: string;
   ctaHref: string;
   featured?: boolean;
+  index?: number;
+}
+
+function formatPrice(price: string) {
+  if (price.toLowerCase().includes('custom')) {
+    return { main: 'Custom', suffix: '/ month' };
+  }
+
+  const aedMatch = price.match(/^(AED\s*[\d,]+)/i);
+  if (aedMatch) {
+    return { main: aedMatch[1], suffix: '/ month' };
+  }
+
+  return { main: price, suffix: '' };
 }
 
 export default function PremiumPricingCard({
@@ -22,96 +37,80 @@ export default function PremiumPricingCard({
   ctaText,
   ctaHref,
   featured = false,
+  index = 0,
 }: PricingCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
-  }, []);
-
-  // Use lower threshold on mobile to support tall vertical cards
-  const isInView = useInView(ref, { amount: isMobile ? 0.15 : 0.4 });
-  const [isFocused, setIsFocused] = useState(false);
-
-  useEffect(() => {
-    setIsFocused(isInView);
-  }, [isInView]);
+  const { main, suffix } = formatPrice(price);
 
   return (
-    <motion.div
-      ref={ref}
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, ease: customEase, delay: index * 0.08 }}
       className={`
-        relative overflow-hidden rounded-2xl
-        bg-white-primary
-        border ${featured ? 'border-gold-primary shadow-[0_0_20px_rgba(201,162,39,0.1)]' : 'border-border-light'}
-        p-8
+        relative flex h-full w-[min(88vw,340px)] shrink-0 snap-center flex-col
+        md:w-auto md:shrink
+        rounded-2xl border p-6 sm:p-7 lg:p-8
+        transition-all duration-300
+        ${featured
+          ? 'border-gold-primary/50 bg-navy-primary text-white shadow-[0_20px_50px_rgba(10,22,40,0.35)] md:scale-[1.04] md:z-10'
+          : 'border-border-light bg-white-primary text-navy-primary shadow-sm hover:border-gold-primary/30 hover:shadow-md'
+        }
       `}
-      variants={pricingCardVariants}
-      initial="initial"
-      animate={isFocused ? 'focus' : 'initial'}
     >
       {featured && (
-        <motion.div
-          className="absolute top-0 right-0 bg-gold-primary text-white-primary text-xs font-bold px-4 py-2 rounded-bl-xl"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          POPULAR
-        </motion.div>
+        <div className="absolute -top-px left-1/2 -translate-x-1/2 rounded-b-lg bg-gold-primary px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
+          Most Popular
+        </div>
       )}
 
-      <div className="relative z-10">
-        <h3 className="font-sans text-2xl font-bold text-navy-primary tracking-tight mb-2">
+      <div className="mb-5 pt-2">
+        <p className={`font-sans text-[10px] font-semibold uppercase tracking-[0.2em] mb-2 ${featured ? 'text-gold-primary' : 'text-gold-primary'}`}>
           {title}
-        </h3>
-        
-        <div className="mb-4">
-          <span className="font-sans text-4xl font-bold text-navy-primary tracking-tight">
-            {price}
+        </p>
+        <div className="flex items-end gap-1.5 flex-wrap">
+          <span className={`font-serif text-4xl sm:text-[2.75rem] font-bold leading-none tracking-tight ${featured ? 'text-white' : 'text-navy-primary'}`}>
+            {main}
           </span>
-          {price !== 'Custom' && (
-            <span className="text-text-secondary ml-2 font-medium">/month</span>
+          {suffix && (
+            <span className={`font-sans text-sm font-medium pb-1 ${featured ? 'text-text-on-dark-muted' : 'text-text-secondary'}`}>
+              {suffix}
+            </span>
           )}
         </div>
-        
-        <p className="font-sans text-text-secondary mb-6 leading-relaxed text-sm md:text-base">
-          {description}
-        </p>
-        
-        <ul className="space-y-3.5 mb-8">
-          {features.map((feature, index) => (
-            <motion.li
-              key={index}
-              className="flex items-start gap-3 text-text-secondary"
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.05 * index }}
-            >
-              <div className="w-5 h-5 rounded-full bg-gold-primary/10 border border-gold-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-gold-primary" />
-              </div>
-              <span className="text-sm font-medium leading-normal">{feature}</span>
-            </motion.li>
-          ))}
-        </ul>
-        
-        <motion.a
-          href={ctaHref}
-          className={`
-            block w-full text-center py-4 rounded-xl font-bold transition-all duration-300 text-sm tracking-wide
-            ${featured
-              ? 'bg-gold-primary hover:bg-gold-secondary text-white-primary hover:shadow-[0_4px_20px_rgba(201,162,39,0.25)]'
-              : 'bg-white-secondary hover:bg-gray-light border border-gold-primary text-gold-primary hover:shadow-[0_4px_15px_rgba(201,162,39,0.1)]'
-            }
-          `}
-          whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.99 }}
-        >
-          {ctaText}
-        </motion.a>
       </div>
-    </motion.div>
+
+      <p className={`font-sans text-sm leading-relaxed mb-6 ${featured ? 'text-text-on-dark-muted' : 'text-text-secondary'}`}>
+        {description}
+      </p>
+
+      <div className={`h-px w-full mb-6 ${featured ? 'bg-white/10' : 'bg-border-light'}`} />
+
+      <ul className="space-y-3 mb-8 flex-1">
+        {features.map((feature) => (
+          <li key={feature} className="flex items-start gap-3">
+            <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? 'bg-gold-primary/15 text-gold-primary' : 'bg-gold-faint text-gold-primary'}`}>
+              <Check className="h-3 w-3" strokeWidth={2.5} />
+            </span>
+            <span className={`font-sans text-sm leading-snug ${featured ? 'text-text-on-dark' : 'text-text-secondary'}`}>
+              {feature}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <Link
+        href={ctaHref}
+        className={`
+          block w-full rounded-xl py-3.5 text-center font-sans text-sm font-semibold tracking-wide transition-all duration-300
+          ${featured
+            ? 'bg-gold-primary text-white hover:bg-gold-secondary hover:shadow-[0_8px_24px_rgba(201,162,39,0.35)]'
+            : 'border border-gold-primary/40 bg-white-secondary text-gold-primary hover:bg-gold-faint hover:border-gold-primary'
+          }
+        `}
+      >
+        {ctaText}
+      </Link>
+    </motion.article>
   );
 }

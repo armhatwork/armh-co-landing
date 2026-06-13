@@ -16,7 +16,7 @@ const PremiumHero = dynamic(() => import('@/components/shared/PremiumHero'), { s
 const BentoGrid = dynamic(() => import('@/components/shared/BentoGrid'), { ssr: true });
 const ScrollytellingSteps = dynamic(() => import('@/components/shared/ScrollytellingSteps'), { ssr: true });
 const MarqueeSlider = dynamic(() => import('@/components/shared/MarqueeSlider'), { ssr: true });
-const PremiumPricingCard = dynamic(() => import('@/components/shared/PremiumPricingCard'), { ssr: true });
+const PricingSection = dynamic(() => import('@/components/shared/PricingSection'), { ssr: true });
 const PremiumAccordion = dynamic(() => import('@/components/shared/PremiumAccordion'), { ssr: true });
 const StatsBar = dynamic(() => import('@/components/shared/StatsBar'), { ssr: true });
 const CredentialBadge = dynamic(() => import('@/components/shared/CredentialBadge'), { ssr: true });
@@ -225,43 +225,7 @@ export default function UKHomepage() {
       {/* Testimonials */}
       <MarqueeSlider testimonials={ukTestimonials} />
 
-      {/* Pricing */}
-      <section className="py-12 md:py-16 lg:py-20 px-5 md:px-4 bg-white-secondary">
-        <div className="max-w-7xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'tween', ease: 'easeOut', duration: 0.5 }}
-            className="font-sans text-navy-primary tracking-[0.15em] text-xs font-medium uppercase mb-2 text-center"
-          >
-            Pricing
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'tween', ease: 'easeOut', duration: 0.5, delay: 0.1 }}
-            className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-navy-primary mb-8 md:mb-12 text-center tracking-tight"
-          >
-            Transparent Pricing
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-            {ukPricing.map((tier, index) => (
-              <PremiumPricingCard
-                key={index}
-                title={tier.tier}
-                price={tier.price}
-                description={tier.note}
-                features={tier.features}
-                ctaText={tier.ctaText}
-                ctaHref={tier.ctaHref}
-                featured={tier.highlighted}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      <PricingSection tiers={ukPricing} market="uk" />
 
       {/* FAQ */}
       <section className="py-12 md:py-16 lg:py-20 px-5 md:px-4 bg-white-secondary">

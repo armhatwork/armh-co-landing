@@ -285,7 +285,7 @@ export default function UAEHomepage() {
       </section>
 
       {/* Stats Bar */}
-      <StatsBar stats={uaeStats} />
+      <StatsBar stats={uaeStats} market="uae" />
 
       {/* How It Works */}
       <ScrollytellingSteps

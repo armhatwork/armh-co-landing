@@ -175,7 +175,7 @@ export default function UKHomepage() {
       </section>
 
       {/* Stats Bar */}
-      <StatsBar stats={ukStats} />
+      <StatsBar stats={ukStats} market="uk" />
 
       {/* How It Works */}
       <ScrollytellingSteps

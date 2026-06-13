@@ -68,16 +68,16 @@ export default function UAEHomepage() {
       <PremiumHero
         title="Financial Clarity for UAE SMEs — Across All 7 Emirates"
         subtitle="UAE MARKET"
-        description="FTA-registered VAT, corporate tax, payroll, and CFO advisory built for mainland and free zone businesses across the UAE."
+        description="Expert VAT, corporate tax, payroll, and CFO advisory built for mainland and free zone businesses across the UAE."
         ctaText="Book Free Consultation"
         ctaHref="/uae/contact"
         backgroundVideo="/ARMH&CO video.mp4"
       />
 
       {/* Credential Strip */}
-      <section className="bg-navy-primary py-8 md:py-12 px-5 md:px-4 shadow-2xl relative z-20">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-sans text-gold-primary tracking-[0.15em] text-xs font-semibold uppercase mb-4 text-center">
+      <section className="bg-navy-primary py-4 md:py-5 px-5 md:px-4 shadow-2xl relative z-20">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-gold-primary tracking-[0.15em] text-[10px] font-semibold uppercase mb-2 text-center">
             Regulated & Certified
           </p>
           <CredentialBadge variant="dark" />
@@ -115,8 +115,8 @@ export default function UAEHomepage() {
             {[
               {
                 number: '01',
-                title: 'FTA Registered Tax Agents',
-                description: 'We are registered with the Federal Tax Authority — meaning we can represent your business directly in all FTA correspondence and audits.'
+                title: 'Expert FTA Compliance',
+                description: 'We manage all FTA correspondence, filing, and audit support so your business stays fully compliant with UAE tax regulations.'
               },
               {
                 number: '02',

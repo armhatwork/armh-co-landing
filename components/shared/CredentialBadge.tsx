@@ -7,8 +7,6 @@ interface CredentialBadgeProps {
 const CredentialBadge = ({ variant = 'dark' }: CredentialBadgeProps) => {
   const credentials = [
     'ACCA',
-    'ICAEW',
-    'HMRC Registered',
     'Xero Partner',
     'QuickBooks Certified',
     'SECP Recognized',
@@ -19,7 +17,7 @@ const CredentialBadge = ({ variant = 'dark' }: CredentialBadgeProps) => {
   const baseClasses = variant === 'dark' ? 'text-text-on-dark-muted' : 'text-text-secondary';
 
   return (
-    <div className={`flex flex-wrap items-center justify-center gap-x-4 gap-y-2 ${baseClasses} text-xs md:text-sm`}>
+    <div className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-1 ${baseClasses} text-[10px] md:text-xs`}>
       {credentials.map((cred, index) => (
         <span key={cred} className="font-medium inline-flex items-center gap-2">
           {cred}

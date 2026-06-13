@@ -6,7 +6,7 @@ const Footer = dynamic(() => import('@/components/shared/Footer'))
 
 export const metadata: Metadata = {
   title: 'ARMH & Co | UK Accounting & Tax Compliance Specialists | ACCA Regulated',
-  description: 'Expert bookkeeping, VAT, corporation tax, and payroll for UK SMEs and newly incorporated businesses. ACCA & ICAEW qualified.',
+  description: 'Expert bookkeeping, VAT, corporation tax, and payroll for UK SMEs and newly incorporated businesses. ACCA qualified.',
 }
 
 export default function UKLayout({

@@ -205,7 +205,7 @@ export default function AboutPage() {
             viewport={{ once: true, margin: "-100px" }}
           >
             {[
-              'ACCA professionals & ICAEW Qualified Professionals',
+              'ACCA Certified Professionals',
               'Proactive Deadline Management',
               'Fixed Monthly Pricing',
               'Dedicated Account Manager',

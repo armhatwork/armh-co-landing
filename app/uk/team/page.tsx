@@ -11,7 +11,7 @@ export default function TeamPage() {
       id: 1,
       name: 'Jonathan Mitchell',
       role: 'Managing Director',
-      qualifications: ['ACCA', 'ICAEW', 'FCCA'],
+      qualifications: ['ACCA', 'FCCA'],
       experience: '15+ years',
       expertise: ['Corporate Tax', 'International Tax', 'Strategic Planning'],
       bio: 'Jonathan leads ARMH & Co with over 15 years of experience in UK and international taxation. He specializes in complex cross-border tax planning and strategic financial advisory for growing businesses.',

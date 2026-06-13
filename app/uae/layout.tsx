@@ -5,8 +5,8 @@ const Navbar = dynamic(() => import('@/components/shared/Navbar'))
 const Footer = dynamic(() => import('@/components/shared/Footer'))
 
 export const metadata: Metadata = {
-  title: 'ARMH & Co | UAE Accounting, VAT & Corporate Tax | FTA Registered',
-  description: 'Expert VAT compliance, UAE corporate tax, bookkeeping, and CFO advisory built specifically for the UAE regulatory environment. FTA Registered Tax Agents.',
+  title: 'ARMH & Co | UAE Accounting, VAT & Corporate Tax',
+  description: 'Expert VAT compliance, UAE corporate tax, bookkeeping, and CFO advisory built specifically for the UAE regulatory environment.',
 }
 
 export default function UAELayout({

@@ -11,7 +11,7 @@ export default function TeamPage() {
       id: 1,
       name: 'Hassan Al-Rashid',
       role: 'Managing Director',
-      qualifications: ['ACCA', 'ICAEW', 'CPA'],
+      qualifications: ['ACCA', 'CPA'],
       experience: '18+ years',
       expertise: ['UAE Tax', 'International Tax', 'Free Zone Advisory'],
       bio: 'Hassan leads ARMH & Co UAE with over 18 years of experience in Middle East taxation and business advisory. He specializes in UAE corporate tax, VAT, and free zone regulations.',

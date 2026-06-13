@@ -23,7 +23,7 @@ export default function FAQPage() {
         {
           id: 2,
           question: 'What makes ARMH & Co different from other accounting firms?',
-          answer: 'We combine international accounting expertise with local regulatory knowledge. Our team is ACCA and ICAEW qualified with experience across UK and international markets. We offer fixed monthly pricing, dedicated account managers, and proactive deadline management to ensure you never miss a filing date.'
+          answer: 'We combine international accounting expertise with local regulatory knowledge. Our team is ACCA qualified with experience across UK and international markets. We offer fixed monthly pricing, dedicated account managers, and proactive deadline management to ensure you never miss a filing date.'
         },
         {
           id: 3,

@@ -36,8 +36,6 @@ const Footer = ({ market }: FooterProps) => {
             <div className="flex flex-wrap gap-3 text-text-on-dark-muted text-xs font-sans">
               <span>ACCA</span>
               <span className="text-gold-primary">·</span>
-              <span>ICAEW</span>
-              <span className="text-gold-primary">·</span>
               <span>Xero</span>
               <span className="text-gold-primary">·</span>
               <span>QuickBooks</span>

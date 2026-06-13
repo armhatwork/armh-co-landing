@@ -91,7 +91,7 @@ export default function RootPage() {
         >
           {[
             { market: 'uk' as const, href: '/uk', flag: '/flags/uk.svg', label: 'United Kingdom', sub: 'HMRC · Companies House · ACCA Regulated' },
-            { market: 'uae' as const, href: '/uae', flag: '/flags/uae.svg', label: 'United Arab Emirates', sub: 'FTA Registered · ACCA · ICAEW · All 7 Emirates' },
+            { market: 'uae' as const, href: '/uae', flag: '/flags/uae.svg', label: 'United Arab Emirates', sub: 'VAT · Corporate Tax · ACCA · All 7 Emirates' },
           ].map((card, i) => (
             <Link
               key={card.market}
@@ -134,7 +134,7 @@ export default function RootPage() {
           transition={{ duration: 0.8, ease: customEase, delay: 0.55 }}
           className="flex flex-wrap justify-center gap-3 md:gap-4 text-text-muted text-xs md:text-sm font-sans font-medium"
         >
-          {['ACCA', 'ICAEW', 'HMRC Registered', 'Xero Partner', 'QuickBooks Certified', 'SECP Recognized'].map((cred, i, arr) => (
+          {['ACCA', 'Xero Partner', 'QuickBooks Certified', 'SECP Recognized'].map((cred, i, arr) => (
             <span key={cred} className="inline-flex items-center gap-3">
               {cred}
               {i < arr.length - 1 && <span className="text-gold-primary font-bold">·</span>}

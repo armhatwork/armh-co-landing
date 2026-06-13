@@ -112,7 +112,7 @@ export default function TermsPage() {
 
             <h2 className="font-serif text-2xl font-bold text-charcoal-900 mb-4">9. Professional Standards</h2>
             <p className="mb-6">
-              We adhere to professional standards and ethical guidelines set by ACCA, ICAEW, and other relevant professional bodies. 
+              We adhere to professional standards and ethical guidelines set by ACCA and other relevant professional bodies. 
               Our services are provided in accordance with applicable laws and regulations in the UK and UAE.
             </p>
 

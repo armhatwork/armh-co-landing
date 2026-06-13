@@ -12,7 +12,7 @@ export default function UAEVATCompliancePage() {
             <ServiceHero
         eyebrow="UAE VAT Services"
         title="VAT Registration & Filing"
-        description="Complete VAT registration, periodic filing, and FTA correspondence management. Our FTA-registered tax agents ensure full compliance with UAE VAT regulations."
+        description="Complete VAT registration, periodic filing, and FTA correspondence management. Our expert team ensures full compliance with UAE VAT regulations."
         videoSrc="/service-videos/6266262-uhd_3840_2160_25fps.mp4"
         primaryCta={{ label: 'Get a Quote', href: '/uae/contact' }}
         secondaryCta={{ label: 'Book Consultation', href: '/uae/contact' }}
@@ -28,7 +28,7 @@ export default function UAEVATCompliancePage() {
               </h2>
               <p className="font-sans text-charcoal-600 mb-6 leading-relaxed">
                 The UAE introduced VAT at 5% in January 2018. Businesses with taxable supplies exceeding AED 375,000 
-                per year must register for VAT. Our FTA-registered tax agents handle all aspects of VAT compliance 
+                per year must register for VAT. Our expert team handles all aspects of VAT compliance 
                 including registration, filing, and correspondence with the Federal Tax Authority.
               </p>
               <p className="font-sans text-charcoal-600 mb-6 leading-relaxed">
@@ -270,7 +270,7 @@ export default function UAEVATCompliancePage() {
             Ensure Your VAT Compliance
           </h2>
           <p className="text-text-on-dark mb-8">
-            Get expert VAT support from FTA-registered tax agents and avoid costly penalties.
+            Get expert VAT support from our compliance specialists and avoid costly penalties.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-gold-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-gold-secondary transition-colors">

@@ -63,9 +63,9 @@ export default function UKHomepage() {
       />
 
       {/* Credential Strip */}
-      <section className="bg-navy-primary py-8 md:py-12 px-5 md:px-4 shadow-2xl relative z-20">
-        <div className="max-w-7xl mx-auto">
-          <p className="font-sans text-gold-primary tracking-[0.2em] text-xs font-semibold uppercase mb-4 text-center">
+      <section className="bg-navy-primary py-4 md:py-5 px-5 md:px-4 shadow-2xl relative z-20">
+        <div className="max-w-5xl mx-auto">
+          <p className="font-sans text-gold-primary tracking-[0.2em] text-[10px] font-semibold uppercase mb-2 text-center">
             Regulated & Certified
           </p>
           <CredentialBadge variant="dark" />
@@ -103,7 +103,7 @@ export default function UKHomepage() {
             {[
               {
                 number: '01',
-                title: 'ACCA & ICAEW Qualified',
+                title: 'ACCA Qualified',
                 description: 'Your accounts handled by chartered professionals with real UK SME experience — not automated tools or offshore junior staff.'
               },
               {

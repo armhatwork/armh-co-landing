@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { customEase } from '@/lib/utils/animation';
@@ -10,8 +9,6 @@ interface PricingCardProps {
   price: string;
   description: string;
   features: string[];
-  ctaText: string;
-  ctaHref: string;
   featured?: boolean;
   index?: number;
 }
@@ -34,8 +31,6 @@ export default function PremiumPricingCard({
   price,
   description,
   features,
-  ctaText,
-  ctaHref,
   featured = false,
   index = 0,
 }: PricingCardProps) {

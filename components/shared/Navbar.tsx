@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter, usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+import { usePathname } from 'next/navigation';
+import { motion } from 'framer-motion';
 import { Menu } from 'lucide-react';
 import { customEase } from '@/lib/utils/animation';
 import MobileMenu from './MobileMenu';
@@ -18,7 +17,6 @@ interface NavbarProps {
 const Navbar = ({ market, onMobileMenuToggle }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const router = useRouter();
   const pathname = usePathname();
 
   const isMarketHome = pathname === '/uk' || pathname === '/uae';

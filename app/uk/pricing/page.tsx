@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, Star, Zap, Shield } from 'lucide-react';
 import PremiumPricingCard from '@/components/shared/PremiumPricingCard';
 import { ukPricing } from '@/lib/data/pricing';
 
@@ -45,8 +44,6 @@ export default function UKPricingPage() {
                 price={tier.price}
                 description={tier.note}
                 features={tier.features}
-                ctaText={tier.ctaText}
-                ctaHref={tier.ctaHref}
                 featured={tier.highlighted}
                 index={index}
               />

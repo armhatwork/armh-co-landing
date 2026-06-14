@@ -11,16 +11,16 @@ import { uaeTestimonials } from '@/lib/data/testimonials';
 import { uaeStats } from '@/lib/data/stats';
 import { uaePricing } from '@/lib/data/pricing';
 
-// Premium components
-const PremiumHero = dynamic(() => import('@/components/shared/PremiumHero'), { ssr: true });
-const BentoGrid = dynamic(() => import('@/components/shared/BentoGrid'), { ssr: true });
-const ScrollytellingSteps = dynamic(() => import('@/components/shared/ScrollytellingSteps'), { ssr: true });
-const MarqueeSlider = dynamic(() => import('@/components/shared/MarqueeSlider'), { ssr: true });
-const PricingSection = dynamic(() => import('@/components/shared/PricingSection'), { ssr: true });
-const PremiumAccordion = dynamic(() => import('@/components/shared/PremiumAccordion'), { ssr: true });
-const StatsBar = dynamic(() => import('@/components/shared/StatsBar'), { ssr: true });
-const CredentialBadge = dynamic(() => import('@/components/shared/CredentialBadge'), { ssr: true });
-const ServiceMarquee = dynamic(() => import('@/components/shared/ServiceMarquee'), { ssr: true });
+// Premium components - lazy loaded for better performance
+const PremiumHero = dynamic(() => import('@/components/shared/PremiumHero'), { ssr: false, loading: () => <div className="min-h-[100dvh] bg-white-primary animate-pulse" /> });
+const BentoGrid = dynamic(() => import('@/components/shared/BentoGrid'), { ssr: false });
+const ScrollytellingSteps = dynamic(() => import('@/components/shared/ScrollytellingSteps'), { ssr: false });
+const MarqueeSlider = dynamic(() => import('@/components/shared/MarqueeSlider'), { ssr: false });
+const PricingSection = dynamic(() => import('@/components/shared/PricingSection'), { ssr: false });
+const PremiumAccordion = dynamic(() => import('@/components/shared/PremiumAccordion'), { ssr: false });
+const StatsBar = dynamic(() => import('@/components/shared/StatsBar'), { ssr: false });
+const CredentialBadge = dynamic(() => import('@/components/shared/CredentialBadge'), { ssr: false });
+const ServiceMarquee = dynamic(() => import('@/components/shared/ServiceMarquee'), { ssr: false });
 
 const iconMap: Record<string, any> = {
   BookOpen,
@@ -90,8 +90,8 @@ export default function UAEHomepage() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'tween', ease: 'easeOut', duration: 0.5 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.3 }}
             className="font-sans text-navy-primary tracking-[0.15em] text-xs font-medium uppercase mb-2 text-center"
           >
             Why ARMH & Co
@@ -99,8 +99,8 @@ export default function UAEHomepage() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: 'tween', ease: 'easeOut', duration: 0.5, delay: 0.1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-navy-primary mb-8 md:mb-12 text-center tracking-tight"
           >
             Built for UAE Businesses
@@ -109,8 +109,8 @@ export default function UAEHomepage() {
             className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ staggerChildren: 0.1 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ staggerChildren: 0.05 }}
           >
             {[
               {
@@ -134,8 +134,8 @@ export default function UAEHomepage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ type: 'tween', ease: 'easeOut', duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ y: -3 }}
                 className="bg-white-primary border border-border-light rounded-sm p-6 md:p-8 shadow-subtle hover:shadow-medium transition-all"
               >
                 <div className="font-sans text-navy-primary text-4xl md:text-5xl font-bold mb-3 md:mb-4 tracking-tight">{feature.number}</div>

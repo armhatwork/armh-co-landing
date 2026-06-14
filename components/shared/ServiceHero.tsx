@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { customEase } from '@/lib/utils/animation';
@@ -23,21 +24,32 @@ export default function ServiceHero({
   secondaryCta = { label: 'Book Consultation', href: '/contact' },
 }: ServiceHeroProps) {
   const reducedMotion = useReducedMotion();
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setShouldPlayVideo(window.innerWidth >= 768);
+    };
+    checkScreen();
+    window.addEventListener('resize', checkScreen, { passive: true });
+    return () => window.removeEventListener('resize', checkScreen);
+  }, []);
 
   return (
     <section className="bg-charcoal-950 pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-20 px-4 relative overflow-hidden">
-      {videoSrc && !reducedMotion && (
+      {videoSrc && !reducedMotion && shouldPlayVideo && (
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover opacity-55"
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
       )}
-      {videoSrc && reducedMotion && (
+      {videoSrc && (reducedMotion || !shouldPlayVideo) && (
         <div className="absolute inset-0 bg-gradient-to-br from-charcoal-900 via-charcoal-950 to-navy-primary opacity-90" />
       )}
       <div className="absolute inset-0 bg-charcoal-950/45" />

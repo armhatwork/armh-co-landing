@@ -29,7 +29,7 @@ const Footer = ({ market }: FooterProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-4 tracking-tight">ARMH & Co</h3>
+            <h3 className="font-serif text-2xl font-bold mb-4 tracking-tight text-white/95">ARMH & Co</h3>
             <p className="font-sans text-text-on-dark-muted text-sm mb-6 leading-relaxed">
               Compliance Specialist Accountants & Tax Advisors
             </p>

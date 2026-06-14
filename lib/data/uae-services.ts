@@ -33,8 +33,8 @@ export const uaeServices = [
   },
   {
     id: 5,
-    title: "Free Zone Accounting",
-    description: "Specialized accounting for DMCC, DIFC, JAFZA, ADGM, and all major UAE free zones.",
+    title: "Qualifying Freezone Assessment",
+    description: "Determine if your UAE business qualifies for 0% corporate tax under free zone regulations. Assessment includes activity analysis, de minimis test, and compliance review. Updated for 2026 regulations.",
     icon: "Building2",
     link: "/uae/free-zone",
     video: "/service-videos/7947435-hd_1920_1080_30fps.mp4"

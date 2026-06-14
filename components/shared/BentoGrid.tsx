@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { LucideIcon } from 'lucide-react';
 import { VideoErrorBoundary } from './VideoErrorBoundary';
@@ -14,7 +15,7 @@ interface BentoCardProps {
   video?: string;
 }
 
-export default function BentoCard({ icon: Icon, title, description, link, video }: BentoCardProps) {
+const BentoCard = React.memo(function BentoCard({ icon: Icon, title, description, link, video }: BentoCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isTouchActive, setIsTouchActive] = useState(false);
@@ -194,4 +195,7 @@ export default function BentoCard({ icon: Icon, title, description, link, video 
       )}
     </motion.div>
   );
-}
+});
+
+const BentoGrid = BentoCard;
+export default BentoGrid;

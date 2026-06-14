@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, Star, Zap, Shield } from 'lucide-react';
+import PremiumPricingCard from '@/components/shared/PremiumPricingCard';
+import { ukPricing } from '@/lib/data/pricing';
 
 export default function UKPricingPage() {
   return (
@@ -36,88 +37,17 @@ export default function UKPricingPage() {
             Comprehensive Accounting Packages
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                tier: 'Essential',
-                price: 'Custom / month',
-                description: 'Core accounting services for small businesses',
-                icon: Zap,
-                features: [
-                  'Bookkeeping up to 50 transactions/month',
-                  'Monthly management accounts',
-                  'VAT return preparation & filing',
-                  'Annual accounts preparation',
-                  'Corporation tax computation',
-                  'Companies House filings',
-                  'Email support'
-                ]
-              },
-              {
-                tier: 'Professional',
-                price: 'Custom / month',
-                description: 'Complete accounting for growing businesses',
-                icon: Shield,
-                features: [
-                  'Everything in Essential',
-                  'Bookkeeping up to 200 transactions/month',
-                  'Payroll processing (up to 10 employees)',
-                  'Self assessment for directors',
-                  'R&D tax credit assessment',
-                  'Quarterly strategy calls',
-                  'Priority support',
-                  'Dedicated accountant'
-                ],
-                highlighted: true
-              },
-              {
-                tier: 'Enterprise',
-                price: 'Custom / month',
-                description: 'Full-service accounting for established businesses',
-                icon: Star,
-                features: [
-                  'Everything in Professional',
-                  'Unlimited transactions',
-                  'Payroll (unlimited employees)',
-                  'Multi-entity consolidation',
-                  'International tax advisory',
-                  'HMRC investigation support',
-                  '24/7 support access',
-                  'CFO advisory hours'
-                ]
-              }
-            ].map((tier, index) => {
-              const Icon = tier.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-charcoal-50 p-8 rounded-xl ${tier.highlighted ? 'border-2 border-gold-primary' : 'border border-charcoal-200'}`}
-                >
-                  {tier.highlighted && (
-                    <span className="bg-gold-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                      Most Popular
-                    </span>
-                  )}
-                  <Icon className="w-12 h-12 text-gold-primary mb-4 mt-4" />
-                  <h3 className="text-2xl font-bold text-charcoal-900 mb-2">{tier.tier}</h3>
-                  <p className="text-3xl font-bold text-gold-primary mb-2">{tier.price}</p>
-                  <p className="text-charcoal-600 text-sm mb-6">{tier.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {tier.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-gold-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-charcoal-600 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/uk/contact" className="w-full bg-charcoal-900 text-white py-3 rounded-lg font-semibold hover:bg-charcoal-800 transition-colors text-center">
-                    Get Custom Quote
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {ukPricing.map((tier, index) => (
+              <PremiumPricingCard
+                key={tier.tier}
+                title={tier.tier}
+                price={tier.price}
+                description={tier.note}
+                features={tier.features}
+                featured={tier.highlighted}
+                index={index}
+              />
+            ))}
           </div>
         </div>
       </section>

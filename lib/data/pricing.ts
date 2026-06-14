@@ -11,8 +11,9 @@ export interface PricingTier {
 export const ukPricing: PricingTier[] = [
   {
     tier: 'Starter',
-    price: 'Custom / month',
+    price: '£300 / month',
     features: [
+      'Up to 100 transactions',
       'Monthly bookkeeping',
       'VAT returns (MTD-compliant)',
       'Year-end accounts',
@@ -22,14 +23,15 @@ export const ukPricing: PricingTier[] = [
       'Email support',
     ],
     highlighted: false,
-    ctaText: 'Get a Quote →',
-    note: 'Tailored to your transaction volume and service requirements.',
+    ctaText: 'Get Started →',
+    note: 'Perfect for small businesses with low transaction volume',
     ctaHref: '/uk/contact'
   },
   {
     tier: 'Growth',
-    price: 'Custom / month',
+    price: '£600 / month',
     features: [
+      'Up to 400 transactions',
       'Everything in Starter',
       'Management accounts',
       'Self Assessment for directors',
@@ -40,14 +42,15 @@ export const ukPricing: PricingTier[] = [
       'Quarterly strategy calls',
     ],
     highlighted: true,
-    ctaText: 'Get a Quote →',
-    note: 'Tailored to your transaction volume and service requirements.',
+    ctaText: 'Get Started →',
+    note: 'Ideal for growing businesses with moderate activity',
     ctaHref: '/uk/contact'
   },
   {
     tier: 'Complete',
-    price: 'Custom / month',
+    price: '£1,000 / month',
     features: [
+      '400+ transactions',
       'Everything in Growth',
       'CFO advisory (monthly)',
       'International tax planning',
@@ -58,8 +61,8 @@ export const ukPricing: PricingTier[] = [
       'Custom reporting',
     ],
     highlighted: false,
-    ctaText: 'Get a Quote →',
-    note: 'Tailored to your transaction volume and service requirements.',
+    ctaText: 'Get Started →',
+    note: 'Comprehensive solution for high-volume businesses',
     ctaHref: '/uk/contact'
   }
 ];
@@ -67,7 +70,7 @@ export const ukPricing: PricingTier[] = [
 export const uaePricing: PricingTier[] = [
   {
     tier: 'Starter',
-    price: 'AED 999/mo',
+    price: 'AED 1,000 / month',
     features: [
       'Monthly bookkeeping (IFRS)',
       'VAT registration & filing',
@@ -84,7 +87,7 @@ export const uaePricing: PricingTier[] = [
   },
   {
     tier: 'Growth',
-    price: 'AED 1,999/mo',
+    price: 'AED 2,000 / month',
     features: [
       'Everything in Starter',
       'Management accounts',
@@ -102,7 +105,7 @@ export const uaePricing: PricingTier[] = [
   },
   {
     tier: 'Enterprise',
-    price: 'AED 3,999/mo',
+    price: 'AED 3,500 / month',
     features: [
       'Everything in Growth',
       'CFO advisory (monthly)',

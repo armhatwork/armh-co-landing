@@ -24,20 +24,28 @@ export default function ScrollytellingSteps({ steps, title }: ScrollytellingStep
   const [activeStep, setActiveStep] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      if (!containerRef.current) return;
-      
-      const rect = containerRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calculate progress relative to viewport center
-      const progress = (-rect.top + windowHeight / 2) / rect.height;
-      const stepIndex = Math.min(Math.max(Math.floor(progress * steps.length), 0), steps.length - 1);
-      
-      setActiveStep(stepIndex);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Calculate progress relative to viewport center
+            const progress = (-rect.top + windowHeight / 2) / rect.height;
+            const stepIndex = Math.min(Math.max(Math.floor(progress * steps.length), 0), steps.length - 1);
+            
+            setActiveStep((prev) => (prev !== stepIndex ? stepIndex : prev));
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);

@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { CheckCircle, ArrowRight, Star, Zap, Shield } from 'lucide-react';
+import PremiumPricingCard from '@/components/shared/PremiumPricingCard';
+import { uaePricing } from '@/lib/data/pricing';
 
 export default function UAEPricingPage() {
   return (
@@ -36,88 +37,17 @@ export default function UAEPricingPage() {
             Comprehensive Accounting Packages
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                tier: 'Essential',
-                price: 'AED 2,499/mo',
-                description: 'Core accounting services for small UAE businesses',
-                icon: Zap,
-                features: [
-                  'IFRS-compliant bookkeeping (up to 50 transactions)',
-                  'Monthly management accounts',
-                  'VAT registration & filing',
-                  'Corporate tax compliance',
-                  'Annual financial statements',
-                  'Free zone compliance support',
-                  'Email support'
-                ]
-              },
-              {
-                tier: 'Professional',
-                price: 'AED 4,999/mo',
-                description: 'Complete accounting for growing UAE businesses',
-                icon: Shield,
-                features: [
-                  'Everything in Essential',
-                  'Bookkeeping (up to 200 transactions)',
-                  'Payroll & WPS (up to 10 employees)',
-                  'ESR & UBO compliance',
-                  'Free zone audit preparation',
-                  'Quarterly strategy calls',
-                  'Priority support',
-                  'Dedicated accountant'
-                ],
-                highlighted: true
-              },
-              {
-                tier: 'Enterprise',
-                price: 'AED 8,999/mo',
-                description: 'Full-service accounting for established UAE businesses',
-                icon: Star,
-                features: [
-                  'Everything in Professional',
-                  'Unlimited transactions',
-                  'Payroll & WPS (unlimited employees)',
-                  'Multi-entity consolidation',
-                  'CFO advisory hours',
-                  'FTA audit support',
-                  '24/7 support access',
-                  'Multi-free zone support'
-                ]
-              }
-            ].map((tier, index) => {
-              const Icon = tier.icon;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`bg-charcoal-50 p-8 rounded-xl ${tier.highlighted ? 'border-2 border-gold-primary' : 'border border-charcoal-200'}`}
-                >
-                  {tier.highlighted && (
-                    <span className="bg-gold-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                      Most Popular
-                    </span>
-                  )}
-                  <Icon className="w-12 h-12 text-gold-primary mb-4 mt-4" />
-                  <h3 className="text-2xl font-bold text-charcoal-900 mb-2">{tier.tier}</h3>
-                  <p className="text-3xl font-bold text-gold-primary mb-2">{tier.price}</p>
-                  <p className="text-charcoal-600 text-sm mb-6">{tier.description}</p>
-                  <ul className="space-y-3 mb-8">
-                    {tier.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-gold-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-charcoal-600 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link href="/uae/contact" className="w-full bg-charcoal-900 text-white py-3 px-2 rounded-lg font-semibold hover:bg-charcoal-800 transition-colors text-center">
-                    Get Quote
-                  </Link>
-                </motion.div>
-              );
-            })}
+            {uaePricing.map((tier, index) => (
+              <PremiumPricingCard
+                key={tier.tier}
+                title={tier.tier}
+                price={tier.price}
+                description={tier.note}
+                features={tier.features}
+                featured={tier.highlighted}
+                index={index}
+              />
+            ))}
           </div>
           <p className="text-center text-text-muted text-sm mt-6">
             *All prices exclude 5% UAE VAT

@@ -32,6 +32,7 @@ export default function ServiceHero({
           muted
           loop
           playsInline
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover opacity-55"
         >
           <source src={videoSrc} type="video/mp4" />

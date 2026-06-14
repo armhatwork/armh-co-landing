@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { customEase } from '@/lib/utils/animation';
@@ -10,8 +9,6 @@ interface PricingCardProps {
   price: string;
   description: string;
   features: string[];
-  ctaText: string;
-  ctaHref: string;
   featured?: boolean;
   index?: number;
 }
@@ -34,8 +31,6 @@ export default function PremiumPricingCard({
   price,
   description,
   features,
-  ctaText,
-  ctaHref,
   featured = false,
   index = 0,
 }: PricingCardProps) {
@@ -86,7 +81,7 @@ export default function PremiumPricingCard({
 
       <div className={`h-px w-full mb-6 ${featured ? 'bg-white/10' : 'bg-border-light'}`} />
 
-      <ul className="space-y-3 mb-8 flex-1">
+      <ul className="space-y-3 flex-1">
         {features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <span className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${featured ? 'bg-gold-primary/15 text-gold-primary' : 'bg-gold-faint text-gold-primary'}`}>
@@ -98,19 +93,6 @@ export default function PremiumPricingCard({
           </li>
         ))}
       </ul>
-
-      <Link
-        href={ctaHref}
-        className={`
-          block w-full rounded-xl py-3.5 text-center font-sans text-sm font-semibold tracking-wide transition-all duration-300
-          ${featured
-            ? 'bg-gold-primary text-white hover:bg-gold-secondary hover:shadow-[0_8px_24px_rgba(201,162,39,0.35)]'
-            : 'border border-gold-primary/40 bg-white-secondary text-gold-primary hover:bg-gold-faint hover:border-gold-primary'
-          }
-        `}
-      >
-        {ctaText}
-      </Link>
     </motion.article>
   );
 }

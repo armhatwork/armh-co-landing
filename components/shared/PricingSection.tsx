@@ -62,8 +62,6 @@ export default function PricingSection({ tiers, market }: PricingSectionProps) {
                 price={tier.price}
                 description={tier.note}
                 features={tier.features}
-                ctaText={tier.ctaText}
-                ctaHref={tier.ctaHref}
                 featured={tier.highlighted}
                 index={index}
               />
@@ -83,8 +81,6 @@ export default function PricingSection({ tiers, market }: PricingSectionProps) {
               price={tier.price}
               description={tier.note}
               features={tier.features}
-              ctaText={tier.ctaText}
-              ctaHref={tier.ctaHref}
               featured={tier.highlighted}
               index={index}
             />

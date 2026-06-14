@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import SplitText from './SplitText';
 import PremiumButton from './PremiumButton';
@@ -25,20 +24,10 @@ export default function PremiumHero({
   backgroundVideo,
 }: PremiumHeroProps) {
   const reducedMotion = useReducedMotion();
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
-
-  useEffect(() => {
-    const checkScreen = () => {
-      setShouldPlayVideo(window.innerWidth >= 768);
-    };
-    checkScreen();
-    window.addEventListener('resize', checkScreen, { passive: true });
-    return () => window.removeEventListener('resize', checkScreen);
-  }, []);
 
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center bg-white-primary overflow-hidden pt-24 sm:pt-28">
-      {backgroundVideo && !reducedMotion && shouldPlayVideo && (
+      {backgroundVideo && !reducedMotion && (
         <>
           <video
             autoPlay
@@ -53,7 +42,7 @@ export default function PremiumHero({
           <div className="absolute inset-0 bg-gradient-to-b from-white-primary/70 via-white-primary/50 to-white-primary/75" />
         </>
       )}
-      {backgroundVideo && (reducedMotion || !shouldPlayVideo) && (
+      {backgroundVideo && reducedMotion && (
         <div className="absolute inset-0 bg-gradient-to-b from-white-secondary to-white-primary" />
       )}
 

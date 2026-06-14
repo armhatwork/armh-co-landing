@@ -70,7 +70,7 @@ export const ukPricing: PricingTier[] = [
 export const uaePricing: PricingTier[] = [
   {
     tier: 'Starter',
-    price: 'AED 999/mo',
+    price: 'AED 1,000 / month',
     features: [
       'Monthly bookkeeping (IFRS)',
       'VAT registration & filing',
@@ -87,7 +87,7 @@ export const uaePricing: PricingTier[] = [
   },
   {
     tier: 'Growth',
-    price: 'AED 1,999/mo',
+    price: 'AED 2,000 / month',
     features: [
       'Everything in Starter',
       'Management accounts',
@@ -105,7 +105,7 @@ export const uaePricing: PricingTier[] = [
   },
   {
     tier: 'Enterprise',
-    price: 'AED 3,999/mo',
+    price: 'AED 3,500 / month',
     features: [
       'Everything in Growth',
       'CFO advisory (monthly)',

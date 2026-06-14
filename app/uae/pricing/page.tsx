@@ -38,51 +38,51 @@ export default function UAEPricingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                tier: 'Essential',
-                price: 'AED 2,499/mo',
+                tier: 'Starter',
+                price: 'AED 1,000 / month',
                 description: 'Core accounting services for small UAE businesses',
                 icon: Zap,
                 features: [
-                  'IFRS-compliant bookkeeping (up to 50 transactions)',
-                  'Monthly management accounts',
+                  'Monthly bookkeeping (IFRS)',
                   'VAT registration & filing',
                   'Corporate tax compliance',
-                  'Annual financial statements',
-                  'Free zone compliance support',
+                  'Basic payroll (up to 5 employees)',
+                  'ESR notification',
+                  'UBO register maintenance',
                   'Email support'
                 ]
               },
               {
-                tier: 'Professional',
-                price: 'AED 4,999/mo',
+                tier: 'Growth',
+                price: 'AED 2,000 / month',
                 description: 'Complete accounting for growing UAE businesses',
                 icon: Shield,
                 features: [
-                  'Everything in Essential',
-                  'Bookkeeping (up to 200 transactions)',
-                  'Payroll & WPS (up to 10 employees)',
-                  'ESR & UBO compliance',
-                  'Free zone audit preparation',
-                  'Quarterly strategy calls',
+                  'Everything in Starter',
+                  'Management accounts',
+                  'Financial forecasting',
+                  'Payroll (up to 20 employees)',
+                  'ESR annual report',
+                  'FTA correspondence handling',
                   'Priority support',
-                  'Dedicated accountant'
+                  'Quarterly strategy calls'
                 ],
                 highlighted: true
               },
               {
                 tier: 'Enterprise',
-                price: 'AED 8,999/mo',
+                price: 'AED 3,500 / month',
                 description: 'Full-service accounting for established UAE businesses',
                 icon: Star,
                 features: [
-                  'Everything in Professional',
-                  'Unlimited transactions',
-                  'Payroll & WPS (unlimited employees)',
-                  'Multi-entity consolidation',
-                  'CFO advisory hours',
-                  'FTA audit support',
-                  '24/7 support access',
-                  'Multi-free zone support'
+                  'Everything in Growth',
+                  'CFO advisory (monthly)',
+                  'Free zone optimization',
+                  'International tax planning',
+                  'Unlimited payroll',
+                  'Audit preparation',
+                  'Dedicated account manager',
+                  '24/7 support access'
                 ]
               }
             ].map((tier, index) => {

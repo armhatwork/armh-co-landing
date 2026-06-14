@@ -4,7 +4,6 @@ const path = require('path')
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
-  swcMinify: true,
   // Prevent Next.js from picking the wrong workspace root (parent lockfile)
   outputFileTracingRoot: path.join(__dirname),
   eslint: {
@@ -18,18 +17,12 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
-    modularizeImports: {
-      lucideReact: {
-        transform: 'lucide-react/dist/esm/icons/{{kebabCase member}}',
-      },
-    },
   },
   poweredByHeader: false,
   generateEtags: true,
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
-    emotion: true,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

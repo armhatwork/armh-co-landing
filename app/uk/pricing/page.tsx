@@ -38,51 +38,54 @@ export default function UKPricingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                tier: 'Essential',
-                price: 'Custom / month',
+                tier: 'Starter',
+                price: '£300 / month',
                 description: 'Core accounting services for small businesses',
                 icon: Zap,
                 features: [
-                  'Bookkeeping up to 50 transactions/month',
-                  'Monthly management accounts',
-                  'VAT return preparation & filing',
-                  'Annual accounts preparation',
-                  'Corporation tax computation',
-                  'Companies House filings',
+                  'Up to 100 transactions',
+                  'Monthly bookkeeping',
+                  'VAT returns (MTD-compliant)',
+                  'Year-end accounts',
+                  'Corporation tax filing',
+                  'Basic payroll (up to 5 employees)',
+                  'Companies House compliance',
                   'Email support'
                 ]
               },
               {
-                tier: 'Professional',
-                price: 'Custom / month',
+                tier: 'Growth',
+                price: '£600 / month',
                 description: 'Complete accounting for growing businesses',
                 icon: Shield,
                 features: [
-                  'Everything in Essential',
-                  'Bookkeeping up to 200 transactions/month',
-                  'Payroll processing (up to 10 employees)',
-                  'Self assessment for directors',
-                  'R&D tax credit assessment',
-                  'Quarterly strategy calls',
+                  'Up to 400 transactions',
+                  'Everything in Starter',
+                  'Management accounts',
+                  'Self Assessment for directors',
+                  'R&D tax credit claims',
+                  'Payroll (up to 20 employees)',
+                  'HMRC correspondence handling',
                   'Priority support',
-                  'Dedicated accountant'
+                  'Quarterly strategy calls'
                 ],
                 highlighted: true
               },
               {
-                tier: 'Enterprise',
-                price: 'Custom / month',
+                tier: 'Complete',
+                price: '£1,000 / month',
                 description: 'Full-service accounting for established businesses',
                 icon: Star,
                 features: [
-                  'Everything in Professional',
-                  'Unlimited transactions',
-                  'Payroll (unlimited employees)',
-                  'Multi-entity consolidation',
-                  'International tax advisory',
-                  'HMRC investigation support',
+                  '400+ transactions',
+                  'Everything in Growth',
+                  'CFO advisory (monthly)',
+                  'International tax planning',
+                  'Unlimited payroll',
+                  'Audit preparation',
+                  'Dedicated account manager',
                   '24/7 support access',
-                  'CFO advisory hours'
+                  'Custom reporting'
                 ]
               }
             ].map((tier, index) => {

@@ -31,11 +31,9 @@ const Footer = ({ market }: FooterProps) => {
           <div>
             <h3 className="font-serif text-2xl font-bold mb-4 tracking-tight">ARMH & Co</h3>
             <p className="font-sans text-text-on-dark-muted text-sm mb-6 leading-relaxed">
-              Chartered Accountants & Tax Advisors
+              Compliance Specialist Accountants & Tax Advisors
             </p>
             <div className="flex flex-wrap gap-3 text-text-on-dark-muted text-xs font-sans">
-              <span>ACCA</span>
-              <span className="text-gold-primary">·</span>
               <span>Xero</span>
               <span className="text-gold-primary">·</span>
               <span>QuickBooks</span>
@@ -48,7 +46,6 @@ const Footer = ({ market }: FooterProps) => {
             <h4 className="font-sans tracking-[0.25em] text-xs font-semibold uppercase text-gold-primary mb-6">Company</h4>
             <ul className="space-y-3 text-sm text-text-on-dark-muted font-sans">
               <li><Link href={`/${market}/about`} className="hover:text-gold-primary transition-colors">About Us</Link></li>
-              <li><Link href={`/${market}/team`} className="hover:text-gold-primary transition-colors">Our Team</Link></li>
               <li><Link href={`/${market}/case-studies`} className="hover:text-gold-primary transition-colors">Case Studies</Link></li>
               <li><Link href={`/${market}/resources`} className="hover:text-gold-primary transition-colors">Resources</Link></li>
               <li><Link href={`/${market}/faq`} className="hover:text-gold-primary transition-colors">FAQ</Link></li>

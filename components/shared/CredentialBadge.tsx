@@ -6,7 +6,6 @@ interface CredentialBadgeProps {
 
 const CredentialBadge = ({ variant = 'dark' }: CredentialBadgeProps) => {
   const credentials = [
-    'ACCA',
     'Xero Partner',
     'QuickBooks Certified',
     'SECP Recognized',

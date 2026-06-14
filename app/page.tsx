@@ -57,7 +57,7 @@ export default function RootPage() {
             ARMH & Co
           </h1>
           <p className="font-sans tracking-[0.2em] text-xs font-bold uppercase text-text-muted mb-6">
-            Chartered Accountants & Tax Advisors
+            Compliance Specialist Accountants & Tax Advisors
           </p>
           <p className="font-sans text-text-secondary text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
             International accounting expertise. Local regulatory precision. Built for businesses that demand{' '}
@@ -73,7 +73,7 @@ export default function RootPage() {
           style={{ perspective: '1200px' }}
         >
           {[
-            { market: 'uk' as const, href: '/uk', flag: '/flags/uk.svg', label: 'United Kingdom', sub: 'HMRC · Companies House · ACCA Regulated' },
+            { market: 'uk' as const, href: '/uk', flag: '/flags/uk.svg', label: 'United Kingdom', sub: 'HMRC · Companies House · ACCA' },
             { market: 'uae' as const, href: '/uae', flag: '/flags/uae.svg', label: 'United Arab Emirates', sub: 'VAT · Corporate Tax · ACCA · All 7 Emirates' },
           ].map((card, i) => (
             <Link
@@ -116,7 +116,7 @@ export default function RootPage() {
           transition={{ duration: 0.4, ease: customEase, delay: 0.25 }}
           className="flex flex-wrap justify-center gap-3 md:gap-4 text-text-muted text-xs md:text-sm font-sans font-medium"
         >
-          {['ACCA', 'Xero Partner', 'QuickBooks Certified', 'SECP Recognized'].map((cred, i, arr) => (
+          {['Xero Partner', 'QuickBooks Certified', 'SECP Recognized'].map((cred, i, arr) => (
             <span key={cred} className="inline-flex items-center gap-3">
               {cred}
               {i < arr.length - 1 && <span className="text-gold-primary font-bold">·</span>}
